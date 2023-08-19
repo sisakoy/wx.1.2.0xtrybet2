@@ -20,7 +20,7 @@ from concurrent.futures import ThreadPoolExecutor
 from aiohttp import ClientSession as aioClientSession
 from psutil import virtual_memory, cpu_percent, disk_usage
 from requests import get as rget
-from mega import MegaApi
+#from mega import MegaApi
 from pyrogram.enums import ChatType
 from pyrogram.types import BotCommand
 from pyrogram.errors import PeerIdInvalid
@@ -168,7 +168,6 @@ def get_all_versions():
     bot_cache['eng_versions'] = {'p7zip':vp, 'ffmpeg': vf, 'rclone': vr,
                                     'aria': aria2.client.get_version()['version'],
                                     'gapi': get_distribution('google-api-python-client').version,
-                                    'mega': MegaApi('test').getVersion(),
                                     'qbit': get_client().app.version,
                                     'pyro': get_distribution('pyrogram').version,
                                     'ytdlp': get_distribution('yt-dlp').version}
@@ -181,7 +180,6 @@ class EngineStatus:
             version_cache = bot_cache.get('eng_versions')
         self.STATUS_ARIA = f"Aria2 v{version_cache['aria']}"
         self.STATUS_GD = f"Google-API v{version_cache['gapi']}"
-        self.STATUS_MEGA = f"MegaSDK v{version_cache['mega']}"
         self.STATUS_QB = f"qBit {version_cache['qbit']}"
         self.STATUS_TG = f"Pyrogram v{version_cache['pyro']}"
         self.STATUS_YT = f"yt-dlp v{version_cache['ytdlp']}"
